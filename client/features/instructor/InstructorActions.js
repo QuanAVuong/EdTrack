@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const fetchInstructor = () => {
+const fetchInstructor = () => {
 	const request = axios.get("/api/instructor/1");
 	return dispatch => {
 		request.then( instructor => {
@@ -10,3 +10,17 @@ export const fetchInstructor = () => {
 	};
 };
 
+const fetchAllInstructors = () => {
+	const request = axios.get("/api/instructor");
+	return dispatch => {
+		request.then( allInstructors => {
+			console.log('/api/instructor', allInstructors);
+			dispatch({ type: "FETCH_ALL_INSTRUCTORS", payload: allInstructors.data });
+		});
+	};
+};
+
+export {
+	fetchInstructor,
+	fetchAllInstructors
+};

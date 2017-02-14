@@ -11,7 +11,7 @@ import {fetchStudent} from './features/student/studentActions';
 import { fetchTopics } from './features/topic/TopicAction';
 import {fetchGrade, fetchAllGrades} from './features/grade/gradeActions';
 import {fetchStudentTopic} from './features/studentTopicList/StudentTopicActions';
-import { fetchInstructor } from './features/instructor/instructorActions';
+import { fetchInstructor, fetchAllInstructors } from './features/instructor/instructorActions';
 
 
 
@@ -23,6 +23,7 @@ store.dispatch(fetchTopics());
 store.dispatch(fetchAllGrades());
 store.dispatch(fetchStudentTopic(1));
 store.dispatch(fetchInstructor());
+store.dispatch(fetchAllInstructors());
 
 
 render(
