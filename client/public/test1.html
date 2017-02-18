@@ -15,12 +15,25 @@
                 text-align: center;
             }
 
+						#info {
+							height: 100px;
+							width: 100%;
+						}
+
             #students {
+            		text-align: center;
                 float: left;
+                height: 50%;
+                width: 50%;
+                clear: both;
             }
 
             #topics {
+            		text-align: center;
                 float: right;
+                height: 50%;
+                width: 50%;
+                clear: both;
             }
             </style>
         </head>
@@ -32,13 +45,14 @@
            <h1> Mentor Session Info</h1>
         </header>
 
-        <section id="students">
-        	'+ students +'
-        </section>
-
-        <section id="topics">
-            '+ topics +'
-        </section>
+        <div id="info">
+        	<section id="students">
+                	Students
+          </section>
+          <section id="topics">
+                	Topics
+          </section>
+        </div>
 
         <footer>Copyright &copy; EdTrack.io</footer>
 

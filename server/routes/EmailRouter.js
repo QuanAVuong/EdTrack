@@ -1,6 +1,5 @@
 const router = require("express").Router();
-// const email = require("../../client/public/email.min.html");
-// const email = require("../../client/public/test1.min.html");
+const email = require("../../client/public/test2.min.html");
 
 const SENDGRID_API_KEY='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'
 const sg = require('sendgrid')(SENDGRID_API_KEY);
@@ -13,10 +12,18 @@ function sendMail(req, res){
 	const to_email = new helper.Email("quan.a.vuong@gmail.com");
 	const subject = "Mentor Session Info next Tuesday 2/21";
 
-	let students = JSON.stringify(req.body.students);
-	let topics = JSON.stringify(req.body.topics);
+	// let students = JSON.stringify(req.body.students);
+	// let topics = JSON.stringify(req.body.topics);
 
-	const content = new helper.Content("text/html", '<!DOCTYPE html><html><head><style>div.container {width: 100%;border: 1px solid gray;}header, footer {padding: 1em;color: white;background-color: #3F485D;clear: left;text-align: center;}nav ul {list-style-type: none;padding: 0;}nav ul a {text-decoration: none;}#topics {margin-left: 170px;border-left: 1px solid gray;padding: 1em;overflow: hidden;}</style></head><body><div class="container"><header><h1> Mentor Session Info</h1></header><h1></h1><section id="students">'+ students +'</section><section id="topics">'+ topics +'</section><footer>Copyright &copy; EdTrack.io</footer></div></body></html>');
+	// minify('test2.html', function(error, data) {
+	//     if (error) console.error(error.message);
+	//     else return data;
+	// });
+
+
+	// const content = new helper.Content("text/html", '<!DOCTYPE html><html><head><style>div.container {width: 100%;border: 1px solid gray;}header, footer {padding: 1em;color: white;background-color: #3F485D;clear: left;text-align: center;}nav ul {list-style-type: none;padding: 0;}nav ul a {text-decoration: none;}#topics {margin-left: 170px;border-left: 1px solid gray;padding: 1em;overflow: hidden;}</style></head><body><div class="container"><header><h1> Mentor Session Info</h1></header><h1></h1><section id="students">'+ students +'</section><section id="topics">'+ topics +'</section><footer>Copyright &copy; EdTrack.io</footer></div></body></html>');
+	//
+	const content = new helper.Content("text/html", JSON.stringify(email));
 
 
 	const mail = new helper.Mail(from_email, subject, to_email, content);
